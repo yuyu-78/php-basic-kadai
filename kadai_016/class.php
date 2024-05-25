@@ -11,37 +11,42 @@
   class Food {
     private $name;
     private $price;
-    public function show_price() {
-      $this->price = 200;
-      echo $this->price . '<br>';
-    }
+
     public function __construct(string $name, int $price) {
       $this->name = $name;
       $this->price = $price;
     }
-}
+
+    public function show_price() {
+      echo 'Price: ' . $this->price . ' Yen<br>';
+    }
+
+    public function show_detail() {
+      return 'Name: ' . $this->name . ', Price: ' . $this->price . ' Yen';
+    }
+  }
+
 $food = new Food('tomato' ,200);
-print_r($food);
-echo '<br>';
+echo $food->show_detail() . '<br>';
+$food->show_price();
 
 class Animal {
     public $name;
     public $height;
     public $weight;
+
+    public function __construct(string $name, int $height, int $weight) {
+      $this->name = $name;
+      $this->height = $height;
+      $this->weight = $weight;
+    }
     public function show_height() {
-        $this->height = 80;
-        echo $this->height . '<br>';
-    }
-    public function __construct(string $name, int $height, string $weight) {
-        $this->name = $name;
-        $this->height = $height;
-        $this->weight = $weight;
-    }
+      echo 'Height: ' . $this->height . ' cm<br>';
+  }
 }
-$animal = new Animal('dog' ,80, 8000);
-print_r($animal);
-echo '<br>';
-$food->show_price();
+
+$animal = new Animal('dog', 80, 8000);
+echo $animal->show_detail() . '<br>';
 $animal->show_height();
   
   ?>
