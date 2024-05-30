@@ -26,7 +26,7 @@
     }
   }
 
-$food = new Food('tomato' ,200);
+$food = new Food('tomato', 200);
 echo $food->show_detail() . '<br>';
 $food->show_price();
 
@@ -40,15 +40,20 @@ class Animal {
       $this->height = $height;
       $this->weight = $weight;
     }
+
     public function show_height() {
       echo 'Height: ' . $this->height . ' cm<br>';
-  }
+    }
+
+    public function show_detail() {
+      return 'Name: ' . $this->name . ', Height: ' . $this->height . ' cm, Weight: ' . $this->weight . ' grams';
+    }
 }
 
 $animal = new Animal('dog', 80, 8000);
 echo $animal->show_detail() . '<br>';
 $animal->show_height();
-  
+
   ?>
 
 </body>
